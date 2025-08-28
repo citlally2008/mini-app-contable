@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Contable</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#0F62FE"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Mini Contable</h1>
+    <div class="top-actions">
+      <button id="btn-install" class="ghost" hidden>Instalar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="actions">
+      <div class="card">
+        <h2>Agregar entrada</h2>
+        <label>Concepto</label>
+        <input id="entrada-concepto" placeholder="Ej: Venta" />
+        <label>Monto</label>
+        <input id="entrada-monto" type="number" inputmode="decimal" placeholder="0.00" />
+        <button id="add-entrada">+ Agregar entrada</button>
+      </div>
+
+      <div class="card">
+        <h2>Agregar salida</h2>
+        <label>Concepto</label>
+        <input id="salida-concepto" placeholder="Ej: Compra" />
+        <label>Monto</label>
+        <input id="salida-monto" type="number" inputmode="decimal" placeholder="0.00" />
+        <button id="add-salida">+ Agregar salida</button>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <div class="table-header">
+        <h2>Movimientos</h2>
+        <div class="table-actions">
+          <button id="btn-export">Exportar PDF</button>
+          <button id="btn-reset" class="danger">Borrar todo</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Concepto entrada</th>
+              <th>Entrada ($)</th>
+              <th>Concepto salida</th>
+              <th>Salida ($)</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+          <tfoot id="tfoot">
+            <tr>
+              <td></td>
+              <td class="right"><strong>Total entradas</strong></td>
+              <td id="total-entradas" class="money">0</td>
+              <td class="right"><strong>Total salidas</strong></td>
+              <td id="total-salidas" class="money">0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="right" colspan="3"><strong>Saldo</strong></td>
+              <td id="saldo" class="money">0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>Datos guardados en tu dispositivo (offline). Hecho con ❤️</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
